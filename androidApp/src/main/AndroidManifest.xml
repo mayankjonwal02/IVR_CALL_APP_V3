@@ -21,14 +21,21 @@
         tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.BLUETOOTH_SCAN"/>
 
+
+
+
     <application
         android:allowBackup="false"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:icon="@drawable/appicon"
+        android:label="IVR Caller"
         android:usesCleartextTraffic="true">
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:screenOrientation="portrait"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -58,7 +65,7 @@
         </activity>
 
         <service
-            android:name=".FunctionalComponents.InCallService"
+            android:name=".FunctionalComponents.Bluetooth_n_Call.InCallService"
             android:permission="android.permission.BIND_INCALL_SERVICE"
             android:exported="true">
             <meta-data
@@ -70,10 +77,21 @@
 
         </service>
 
+
+        <service
+            android:name=".FunctionalComponents.Bluetooth_n_Call.Call_SMS_Service"
+            android:enabled="true"
+            android:exported="false"/>
+
+
         <receiver
-            android:name=".FunctionalComponents.MyAlarmreceiver"
+            android:name=".FunctionalComponents.AlarmComponents.MyAlarmreceiver"
             android:exported="false"
-            android:enabled="true" />
+            android:enabled="true"/>
+
+
+
+
 
     </application>
 </manifest> 
